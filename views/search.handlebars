@@ -1,0 +1,28 @@
+{{!-- {{> header}}
+
+<!-- Search results container-->
+<div class="container mt-5">
+    <h3 class="Poop">Search Results</h3>
+    <!-- The search results will be displayed here using Handlebars.js loops and conditionals -->
+    {{#if searchContent}}
+     <ul class="list-group">
+        {{#each searchContent}}
+         <li class="list-group-item">
+            {{this.content_title}} ({{this.release_year}})
+         </li>
+     </ul>
+     {{else}}
+     <p class="Shinobi">No results found</p>
+     {{if}}
+</div> --}}
+
+<section id="search-results-section" class="cm-section-padding custom-bg-color has-text-white cm-bg-height">
+    <section class="section custom-section py-4">
+        <h3 class="is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Search Results</h3>
+        <div id="search-result-container" class="list-container list-hompage">
+            {{#each searchContent as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>
+</section>

@@ -1,0 +1,98 @@
+<!--Hero Section-->
+<section class="hero hero-landing">
+    <div class="hero-body">
+       
+        <h1 id="landing-title">
+            Movie's<br> for<br>the<br> Modern.
+           
+        </h1>
+        
+
+        <div class="subtext-body">
+
+        <p id="landing-text"> 
+            Today is the day you<br> start to direct your own life,<br>and personalize your movie palette.<br> We aren't afraid to change<br> how we watch movies, and neither should you!<br> It's time you stop settling<br> for Cinema, and begin watching <br><span id="emphasis">CineMe!</span>
+        </p>
+        </div>
+        </div>
+    
+    
+
+</section>
+<!--End of Hero Section-->
+
+        
+            <div class="DB-body">
+                <h1 id="DB-credit">
+                   <i class="fa-solid fa-battery-three-quarters fa-xl"></i> Powered by: The Movie DB <i class="fa-solid fa-clapperboard fa-l"></i>
+                </h1>
+            </div>
+
+
+{{!-- Content Sections --}}
+<section id="home-content-sections" class="cm-section-padding bg-primary has-text-white">
+     <section id="top-movies-section" class="section custom-section py-4">
+        <h3 class="top-movies is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Top Rated Movies</h3>
+        <div id="top-movies-container" class="list-container list-homepage">
+            {{#each topMovies as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>
+    <section id="popular-movies-section" class="section custom-section py-4">
+        <h3 class="pop-movies is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Popular Movies</h3>
+        <div id="popular-movies-container" class="list-container list-homepage">
+            {{#each popMovies as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>   
+    <section id="action-movies-section" class="section custom-section py-4">
+        <h3 class="action-movies is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Action</h3>
+        <div id="action-movies-container" class="list-container list-homepage">
+            {{#each actionMovies as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>   
+    <section id="comedy-movies-section" class="section custom-section py-4">
+        <h3 class="comedy-movies is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Comedy</h3>
+        <div id="comedy-movies-container" class="list-container list-homepage">
+            {{#each comedyMovies as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>   
+    <section id="romance-movies-section" class="section custom-section py-4">
+        <h3 class="romance-movies is-size-3 is-size-4-touch mb-3 has-text-weight-bold">Romance</h3>
+        <div id="romance-movies-container" class="list-container list-homepage">
+            {{#each romanceMovies as |content-info|}}
+            {{> content-card content-info}}
+            {{/each}}
+        </div>
+    </section>   
+</section>
+
+<footer>
+<div class="bubble">
+<h1 class="footer-logo">Cine<span id="ME">Me</span></h1>
+</div>
+
+<div class="footer-text">
+    <p id="words">CineMe was created by movie lovers<br> for movie lovers. Stop letting algorithms dictate what you watch. <br>We let the user decide exactly<br> what they want to watch so kick back, and enjoy some "Me" time with CineMe.</p>
+</div>
+
+<div class="socials">
+    <h3 id="social-icons">Follow us on our Socials!</h3>
+        <i class="fa-brands fa-square-instagram fa-2x"></i>
+        <i class="fa-brands fa-square-twitter fa-2x"></i>
+        <i class="fa-brands fa-square-youtube fa-2x"></i>
+        <i class="fa-brands fa-square-facebook fa-2x"></i>
+    
+</div>
+
+
+</footer>
+
+
+

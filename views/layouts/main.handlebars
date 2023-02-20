@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/fontawesome.min.css" 
+  integrity="sha512-cHxvm20nkjOUySu7jdwiUxgGy11vuVPE9YeK89geLMLMMEOcKFyS2i+8wo0FOwyQO/bL8Bvq1KMsqK4bbOsPnA==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+
+
+<body class="is-flex is-flex-direction-column has-background-black">
+  <header>
+    <!-- navigation -->
+    <nav id="yellow-head" class="navbar is-fixed-top bg-warning" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+          <h1 class="nav-logo is-size-4 is-size-5-touch" id="nav-logo"><span>CineMe</span>
+          </h1>
+        </a>
+        <a role="button" class="navbar-burger m-0" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+<!-- search field -->
+   
+      <form class="navbar-item navbar-search field has-addons mb-0 search-hide search-form">
+        <div class="control">
+          <span id="menu-search-filter" class="select is-rounded">
+            <select class="search-filter-dropdown">
+              <option value="movie">CineMe</option>
+            </select>
+          </span>
+        </div>
+        <div class="control is-expanded">
+          <input class="input" type="text" placeholder="Search for your favorite movie or actor/actress!" id="search-input" />
+        </div>
+        <div class="control">
+          <button class="button is-info is-rounded" type="submit" id="search">
+            <span class="icon">
+              <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+      
+
+
+   <!-- navbar menu -->
+   
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Movies
+            </a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/#popular-movies-section">
+                Popular
+              </a>
+              <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/#top-movies-section">
+                Top Rated
+              </a>
+               <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/#action-movies-section">
+                Action
+              </a>
+               </a>
+               <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/#comedy-movies-section">
+                Comedy
+              </a>
+              <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/#romance-movies-section">
+                Romance
+              </a>
+            </div>
+          </div>
+         
+       
+          
+         
+        <div class="navbar-end">
+          <a class="navbar-item has-text-centered" id="nav-pop-mov" href="/watchlist">
+            Watchlist
+          </a>
+          <div class="navbar-item">
+            <div class="buttons">
+              {{#if loggedIn}}
+              <a class="button is-info is-outlined" id="nav-dashboard" href="/dashboard">
+                <span class="icon is-small">
+                  <i class="fa-solid fa-bars"></i>
+                </span>
+                <span>Dashboard</span>
+              </a>
+              <button class="button is-danger is-outlined" id="nav-logout">
+                <span class="icon is-small">
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </span>
+                <span>Logout</span>
+              </button>
+              {{else}}
+              <a class="button is-info is-outlined bg-primary has-text-white" id="nav-login" href="/login">
+                <span class="icon is-small">
+                  <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                </span>
+                <span>Login</span>
+              </a>
+              <a class="button is-primary is-outlined bg-light has-text-link" id="nav-signup" href="/signup">
+                <span class="icon is-small">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </span>
+                <span>Sign up</span>
+              </a>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+<!-- main -->
+  <main>
+    <div class="container mt-1 alert-box is-fluid is-hidden">
+      <div class="notification has-text-centered">
+        <button class="delete" id="dismiss-notification-btn"></button>
+        <span class="alert-text">Test alert for the user.</span>
+      </div>
+    </div>
+    <div class="is-flex is-flex-direction-column">
+      {{{ body }}}
+    </div>
+  </main>
+  
+  <script src="https://kit.fontawesome.com/49675b555e.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/menu.js"></script>
+  <script src="/js/search.js"></script>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src="/js/alert-box.js"></script>
+</html>
+</body>
+
